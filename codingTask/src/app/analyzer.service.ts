@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import { Observable } from 'rxjs';
-import { Data} from './data'
 
 @Injectable({
   providedIn: 'root'
@@ -11,11 +10,11 @@ export class AnalyzerService {
 
   constructor(private httpClient: HttpClient) { }
 
-  public analyzeVovels(text: string | undefined): Observable<Data[]> {
-    return this.httpClient.get<Data[]>(`${this.baseUrl}/analyzeVovels/${text}`);
+  public analyzeVovels(text: string | undefined): Observable<any> {
+    return this.httpClient.get(`${this.baseUrl}/analyzeVovels/${text}`);
   }
 
-  public analyzeConsonants(text: string | undefined): Observable<Data[]> {
-    return this.httpClient.get<Data[]>(`${this.baseUrl}/analyzeConsonants/${text}`);
+  public analyzeConsonants(text: string | undefined): Observable<any> {
+    return this.httpClient.get(`${this.baseUrl}/analyzeConsonants/${text}`);
   }
 }

@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { AnalyzerService } from './analyzer.service';
-import { Data} from './data';
 
 @Component({
   selector: 'app-root',
@@ -8,18 +7,22 @@ import { Data} from './data';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Text analyzer';
   textToAnalyze: any;
-  result!: Data[];
-  vov: any;
-  cons: any;
+  result!: Object[];
+  rdbn: any;
 
   constructor(private analyzerService: AnalyzerService) { }
 
   submitButtonClicked() {
-    if(this.vov == true){
+    if(this.textToAnalyze == undefined){
+      this.textToAnalyze = '';
+    }
+
+    console.log(this.rdbn);
+
+    if(this.rdbn == 1){
       this.doAnalyzeVovels();
-    } else if (this.cons == true){
+    } else if (this.rdbn == 2){
       this.doAnalyzeConsonants();
     }
   }
